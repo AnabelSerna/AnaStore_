@@ -315,12 +315,13 @@ img { display: block; max-width: 100%; }
 }
 
 .product-card {
-  background: var(--gray-100);
+  background: #f5f5f7;
   border-radius: 18px;
-  padding: 32px 24px;
+  padding: 28px 24px 24px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .product-card:hover {
@@ -330,9 +331,11 @@ img { display: block; max-width: 100%; }
 
 .product-card img {
   width: 100%;
-  max-height: 200px;
+  height: 220px;
   object-fit: contain;
+  object-position: center;
   margin: 0 auto 20px;
+  display: block;
 }
 
 .product-name {
@@ -670,7 +673,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   <section class="hero" style="min-height:60vh;">
     <img
       class="hero-bg"
-      src="../assets/ipad_colors.jpeg"
+      src="../assets/nosotros_hero_wide.jpg"
       alt="Tienda AnaStore"
     >
     <div class="hero-overlay"></div>
@@ -713,7 +716,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     <div class="products-grid">
 
       <div class="product-card">
-        <img src="../assets/iphone17_camera.jpeg" alt="iPhone 17 Pro">
+        <img src="../assets/iphone17_hero_wide.jpg" alt="iPhone 17 Pro">
         <div class="product-name">iPhone 17 Pro</div>
         <div class="product-desc">Titanio. Cámara Pro Fusion. Chip A19 Pro.</div>
         <div class="product-price">Desde $1.299.999</div>
@@ -721,7 +724,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
       </div>
 
       <div class="product-card">
-        <img src="../assets/macbook_m5.jpg" alt="MacBook Air M5" style="background:#fff;border-radius:12px;padding:12px;object-fit:contain;">
+        <img src="../assets/macbook_m5_product.jpg" alt="MacBook Air M5">
         <div class="product-name">MacBook Air M5</div>
         <div class="product-desc">Ultradelgada. Chip M5. Batería de 18 hs.</div>
         <div class="product-price">Desde $1.699.999</div>
@@ -729,7 +732,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
       </div>
 
       <div class="product-card">
-        <img src="../assets/applewatch_s11.jpg" alt="Apple Watch Series 11">
+        <img src="../assets/applewatch_product.jpg" alt="Apple Watch Series 11">
         <div class="product-name">Apple Watch Ultra 2</div>
         <div class="product-desc">Titanio aeroespacial. Para los más exigentes.</div>
         <div class="product-price">Desde $899.999</div>
@@ -737,7 +740,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
       </div>
 
       <div class="product-card">
-        <img src="../assets/airpods_pro3.jpg" alt="AirPods Pro 3">
+        <img src="../assets/airpods_product.jpg" alt="AirPods Pro 3">
         <div class="product-name">AirPods Pro 2</div>
         <div class="product-desc">Cancelación activa de ruido. Audio adaptativo.</div>
         <div class="product-price">Desde $449.999</div>
@@ -745,7 +748,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
       </div>
 
       <div class="product-card">
-        <img src="../assets/ipad_colors.jpeg" alt="iPad Pro M4">
+        <img src="../assets/nosotros_hero_wide.jpg" alt="iPad Pro M4">
         <div class="product-name">iPad Pro M4</div>
         <div class="product-desc">El más potente. Pantalla Ultra Retina XDR.</div>
         <div class="product-price">Desde $1.199.999</div>

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contactanos y te ayudamos con tu compra Apple.">
+  <link rel="icon" href="../assets/apple.png">
+  <style>/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+@font-face {
+  font-family: 'SF Pro';
+  
+  font-weight: 400;
+}
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gray-100: #f5f5f7;
+  --gray-200: #e8e8ed;
+  --gray-500: #86868b;
+  --gray-800: #1d1d1f;
+  --blue: #0071e3;
+  --blue-hover: #0077ed;
+  --nav-h: 52px;
+}
+
+body {
+  font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  color: var(--gray-800);
+  background: var(--white);
+  font-size: 17px;
+  line-height: 1.47059;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ── NOTICE BAR ── */
+.notice-bar {
+  background: var(--gray-100);
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--gray-800);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.notice-bar a { color: var(--blue); }
+.notice-bar a:hover { text-decoration: underline; }
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  height: var(--nav-h);
+  background: rgba(29, 29, 31, 0.9);
+  backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+}
+
+.nav-logo {
+  font-size: 20px;
+  color: var(--white);
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.nav-logo:hover { opacity: 1; }
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  height: var(--nav-h);
+  padding: 0 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--white); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-icon {
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-icon:hover { color: var(--white); }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 80px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+}
+
+.hero-eyebrow {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.hero-title {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  margin-bottom: 16px;
+}
+
+.hero-sub {
+  font-size: 21px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 28px;
+  max-width: 600px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 22px;
+  border-radius: 980px;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-blue { background: var(--blue); color: var(--white); }
+.btn-blue:hover { background: var(--blue-hover); }
+
+.btn-white { background: var(--white); color: var(--gray-800); }
+.btn-white:hover { background: var(--gray-200); }
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+.btn-ghost { background: transparent; color: var(--blue); font-size: 14px; padding: 0; }
+.btn-ghost:hover { text-decoration: underline; }
+
+/* ── SECTION ── */
+.section {
+  padding: 100px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-full { padding: 0; max-width: none; }
+
+/* ── PRODUCT GRID (bento) ── */
+.bento-grid {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.bento-grid-2 { grid-template-columns: 1fr 1fr; }
+.bento-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.bento-grid-2-1 { grid-template-columns: 2fr 1fr; }
+
+.bento-card {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px;
+  background: var(--gray-100);
+}
+
+.bento-card-dark { background: var(--black); }
+
+.bento-card img.card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  z-index: 0;
+}
+
+.bento-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.card-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+
+.card-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.card-sub {
+  font-size: 17px;
+  color: var(--gray-500);
+  margin-bottom: 20px;
+}
+
+.bento-card-dark .card-title { color: var(--white); }
+.bento-card-dark .card-sub { color: rgba(255,255,255,0.7); }
+
+/* ── SECTION HEADER ── */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-header h2 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.section-header p {
+  font-size: 21px;
+  color: var(--gray-500);
+  margin-top: 12px;
+}
+
+/* ── PRODUCT CARDS (tienda) ── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--gray-100);
+  border-radius: 18px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+}
+
+.product-name {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.product-desc {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.product-price {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+
+/* ── CARRITO ── */
+.cart-container {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: start;
+  padding: 60px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cart-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.cart-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: var(--gray-100);
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.cart-item-info { flex: 1; }
+.cart-item-name { font-size: 17px; font-weight: 500; margin-bottom: 4px; }
+.cart-item-price { font-size: 15px; color: var(--gray-500); }
+
+.cart-item-remove {
+  font-size: 13px;
+  color: var(--blue);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 4px 0;
+}
+.cart-item-remove:hover { text-decoration: underline; }
+
+.cart-summary {
+  background: var(--gray-100);
+  border-radius: 18px;
+  padding: 28px;
+  position: sticky;
+  top: 80px;
+}
+
+.cart-summary h3 {
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: var(--gray-500);
+}
+
+.summary-row.total {
+  color: var(--gray-800);
+  font-weight: 600;
+  font-size: 17px;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-200);
+  margin-top: 14px;
+}
+
+.checkout-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 17px;
+}
+
+/* ── CONTACTO ── */
+.contact-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.contact-wrap h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.contact-wrap p.lead {
+  font-size: 19px;
+  color: var(--gray-500);
+  margin-bottom: 48px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-500);
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  font-size: 17px;
+  font-family: inherit;
+  color: var(--gray-800);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.12);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+textarea.form-control { resize: vertical; min-height: 120px; }
+
+/* ── NOSOTROS ── */
+.about-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.about-hero h1 {
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  max-width: 700px;
+}
+
+.about-hero p {
+  font-size: 21px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 20px;
+  max-width: 500px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--gray-200);
+}
+
+.value-card {
+  background: var(--white);
+  padding: 56px 40px;
+  text-align: center;
+}
+
+.value-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.value-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.value-desc {
+  font-size: 15px;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--gray-100);
+  border-top: 1px solid var(--gray-200);
+  padding: 40px;
+}
+
+.footer-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 24px;
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 14px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--gray-800); }
+
+.footer-bottom {
+  font-size: 13px;
+  color: var(--gray-500);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── FADE IN ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.25s; }
+.fade-up-3 { animation-delay: 0.4s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .bento-grid-2, .bento-grid-3, .bento-grid-2-1 { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .cart-container { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .section { padding: 60px 20px; }
+  .contact-wrap { padding: 60px 20px; }
+}
+
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+  <title>Contacto — AnaStore</title>
+</head>
+<body>
+
+  <div class="notice-bar">
+    Respondemos todos los mensajes en menos de 24 horas hábiles
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">&#63743;</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html" class="active">Contacto</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="carrito.html" class="nav-icon">🛒</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO CONTACTO -->
+  <section class="hero" style="min-height:45vh;">
+    <img
+      class="hero-bg"
+      src="../assets/contacto_hero_wide.jpg"
+      alt="Contacto AnaStore"
+    >
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-up">
+      <div class="hero-eyebrow">Estamos para ayudarte</div>
+      <h1 class="hero-title" style="font-size:clamp(40px,6vw,72px);">Contacto</h1>
+      <p class="hero-sub">Cualquier consulta, cuando quieras.</p>
+    </div>
+  </section>
+
+  <!-- FORM + INFO -->
+  <div style="display:grid;grid-template-columns:1fr 360px;gap:64px;max-width:1000px;margin:0 auto;padding:80px 40px;">
+
+    <!-- FORM -->
+    <div>
+      <h2 style="font-size:32px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;">Envianos un mensaje</h2>
+      <p style="font-size:17px;color:#86868b;margin-bottom:40px;">Te respondemos en menos de 24 horas hábiles.</p>
+
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Apellido</label>
+            <input type="text" class="form-control" placeholder="Tu apellido">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="tu@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Asunto</label>
+          <select class="form-control">
+            <option value="" disabled selected>Seleccioná un tema</option>
+            <option>Consulta sobre un producto</option>
+            <option>Estado de mi pedido</option>
+            <option>Devoluciones y garantías</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-control" placeholder="Contanos en qué podemos ayudarte..." rows="5"></textarea>
+        </div>
+        <div style="margin-top:8px;">
+          <label style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#444;cursor:pointer;">
+            <input type="checkbox" style="margin-top:3px;accent-color:#0071e3;">
+            Acepto los términos y condiciones y la política de privacidad.
+          </label>
+        </div>
+        <button type="submit" class="btn btn-blue" style="margin-top:24px;padding:14px 36px;font-size:17px;">Enviar mensaje</button>
+      </form>
+    </div>
+
+    <!-- INFO -->
+    <div style="padding-top:80px;">
+      <div style="background:#f5f5f7;border-radius:18px;padding:32px;">
+        <h3 style="font-size:19px;font-weight:600;margin-bottom:24px;">Otras formas de contacto</h3>
+
+        <div style="margin-bottom:20px;">
+          <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#86868b;font-weight:600;margin-bottom:4px;">WhatsApp</div>
+          <div style="font-size:15px;color:#1d1d1f;">+54 11 · · · · · · · ·</div>
+          <div style="font-size:13px;color:#86868b;">Lun–Vie 9 a 18 hs</div>
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#86868b;font-weight:600;margin-bottom:4px;">Email</div>
+          <div style="font-size:15px;color:#0071e3;">hola@anastore.com.ar</div>
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#86868b;font-weight:600;margin-bottom:4px;">Instagram</div>
+          <div style="font-size:15px;color:#0071e3;">@anastore.ar</div>
+        </div>
+
+        <div>
+          <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#86868b;font-weight:600;margin-bottom:4px;">Ubicación</div>
+          <div style="font-size:15px;color:#1d1d1f;">Buenos Aires, Argentina</div>
+        </div>
+      </div>
+
+      <div style="background:#000;border-radius:18px;padding:32px;margin-top:16px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:12px;">🛒</div>
+        <h3 style="font-size:17px;font-weight:600;color:#fff;margin-bottom:8px;">¿Ya sabés qué querés?</h3>
+        <p style="font-size:13px;color:#86868b;margin-bottom:16px;">Pasate por la tienda y encontralo.</p>
+        <a href="tienda.html" class="btn btn-white" style="font-size:14px;">Ir a la tienda</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>AnaStore</h4>
+          <a href="../index.html">Inicio</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="#">Buenos Aires, Argentina</a>
+        </div>
+        <div class="footer-col">
+          <h4>Atención al cliente</h4>
+          <a href="#">Devoluciones</a>
+          <a href="#">Métodos de pago</a>
+          <a href="#">Envíos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Productos</h4>
+          <a href="tienda.html">iPhone</a>
+          <a href="tienda.html">Mac</a>
+          <a href="tienda.html">iPad</a>
+          <a href="tienda.html">Apple Watch</a>
+        </div>
+        <div class="footer-col">
+          <h4>Seguinos</h4>
+          <a href="#">Instagram</a>
+          <a href="#">WhatsApp</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright © 2026 AnaStore. Todos los derechos reservados.</span>
+        <span>Proyecto UX/UI educativo.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -690,7 +690,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   <!-- BENTO GRID 1 -->
   <div class="bento-grid bento-grid-2">
 
-    <div class="bento-card" style="background:#fff;box-shadow:inset 0 0 0 1px #e8e8ed;">
+    <div class="bento-card" style="background:#f5f5f7;">
       <div class="bento-card-content">
         <div class="card-eyebrow">Nuevo</div>
         <h2 class="card-title">MacBook Air</h2>
@@ -698,9 +698,9 @@ textarea.form-control { resize: vertical; min-height: 120px; }
         <a href="pages/tienda.html" class="btn btn-blue" style="margin-top:8px;">Comprar</a>
       </div>
       <img
-        src="./assets/macbook_m5_product.jpg"
+        src="./assets/MacBookAir.jpg"
         alt="MacBook Air M5"
-        style="position:absolute;bottom:0;right:0;height:100%;width:auto;max-width:100%;object-fit:contain;"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;z-index:0;"
       >
     </div>
 
@@ -714,7 +714,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
       <img
         src="./assets/macbook_dark.jpeg"
         alt="MacBook Pro"
-        style="position:absolute;bottom:0;right:0;width:65%;object-fit:contain;object-position:bottom;"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;"
       >
     </div>
   </div>
@@ -722,27 +722,32 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   <!-- BENTO GRID 2 -->
   <div class="bento-grid bento-grid-3">
 
-    <div class="bento-card" style="background:#fff;box-shadow:inset 0 0 0 1px #e8e8ed;min-height:400px;">
+    <div class="bento-card" style="background:#000;min-height:400px;">
       <div class="bento-card-content">
-        <div class="card-eyebrow">AirPods Pro</div>
-        <h2 class="card-title" style="color:#1d1d1f;">Audio adaptativo.</h2>
-        <p class="card-sub" style="color:#86868b;">Escuchá la diferencia.</p>
-        <a href="pages/tienda.html" class="btn btn-blue" style="margin-top:8px;font-size:13px;padding:10px 18px;">Comprar</a>
+        <div class="card-eyebrow" style="color:#6B8CFF;">AirPods Pro</div>
+        <h2 class="card-title" style="color:#fff;">Audio adaptativo.</h2>
+        <p class="card-sub" style="color:rgba(255,255,255,0.7);">Escuchá la diferencia.</p>
+        <a href="pages/tienda.html" class="btn btn-white" style="margin-top:8px;font-size:13px;padding:10px 18px;">Comprar</a>
       </div>
       <img
-        src="./assets/airpods_product.jpg"
-        alt="AirPods"
-        style="position:absolute;bottom:0;right:0;width:75%;object-fit:contain;"
+        src="./assets/AirPods.jpg"
+        alt="AirPods Pro"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;"
       >
     </div>
 
-    <div class="bento-card" style="background:#f0f4ff;min-height:400px;">
+    <div class="bento-card" style="background:#000;min-height:400px;">
       <div class="bento-card-content">
         <div class="card-eyebrow">iPad Pro</div>
-        <h2 class="card-title" style="color:#1d1d1f;">Creá sin límites.</h2>
-        <p class="card-sub" style="color:#86868b;">El chip M4 en su máxima expresión.</p>
-        <a href="pages/tienda.html" class="btn btn-blue" style="margin-top:8px;font-size:13px;padding:10px 18px;">Ver iPad</a>
+        <h2 class="card-title" style="color:#fff;">Creá sin límites.</h2>
+        <p class="card-sub" style="color:rgba(255,255,255,0.7);">El chip M4 en su máxima expresión.</p>
+        <a href="pages/tienda.html" class="btn btn-white" style="margin-top:8px;font-size:13px;padding:10px 18px;">Ver iPad</a>
       </div>
+      <img
+        src="./assets/MacBookPro.jpg"
+        alt="iPad Pro"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;"
+      >
     </div>
 
     <div class="bento-card" style="background:#1d1d1f;min-height:400px;"><img src="./assets/tradein_hero.jpeg" alt="Trade In" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;z-index:0;">
@@ -799,7 +804,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
   <!-- BENTO GRID 3 — accesorios -->
   <div class="bento-grid bento-grid-2" style="margin-top:0;">
-    <div class="bento-card" style="background:#fff;box-shadow:inset 0 0 0 1px #e8e8ed;min-height:380px;">
+    <div class="bento-card" style="background:#f5f5f7;min-height:460px;">
       <div class="bento-card-content">
         <div class="card-eyebrow">Accesorios</div>
         <h2 class="card-title">MagSafe y más.</h2>
@@ -807,12 +812,12 @@ textarea.form-control { resize: vertical; min-height: 120px; }
         <a href="pages/tienda.html" class="btn btn-blue" style="margin-top:8px;font-size:13px;">Ver accesorios</a>
       </div>
       <img
-        src="./assets/accesoriosiphone.jpeg"
+        src="./assets/accesorios2.png"
         alt="Accesorios MagSafe"
-        style="position:absolute;bottom:0;right:0;height:100%;width:auto;max-width:100%;object-fit:contain;"
+        style="position:absolute;bottom:0;left:0;width:100%;height:auto;z-index:0;"
       >
     </div>
-    <div class="bento-card bento-card-dark" style="min-height:380px;">
+    <div class="bento-card bento-card-dark" style="min-height:460px;">
       <div class="bento-card-content">
         <div class="card-eyebrow">Apple TV+</div>
         <h2 class="card-title">Historias extraordinarias.</h2>
